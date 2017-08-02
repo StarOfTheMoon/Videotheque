@@ -1,0 +1,24 @@
+{% extends "HelloWorldBundle:default:layout.html.twig" %}
+{% block title %} Titre de la page {% endblock %}
+
+{% block body %}
+	<table class="table">
+		<tr>
+			<td>Pseudo</td>
+			<td>Âge</td>
+			<td>Adresse email</td>
+			<td>Modifier</td>
+			<td>Supprimer</td>
+		</tr>
+        {% for user in users %}
+			<tr>
+				<td><a href="{{ path('hello_world_user', {'id': user.id}) }}">{{ user.pseudo }}</a></td>
+				<td>{{ user.age }}</td>
+				<td>{{ user.email }}</td>
+				<td><a href="{{ path('hello_world_update_user', {'id': user.id}) }}">Modifier</a></td>
+				<td><a href="{{ path('hello_world_delete_user', {'id': user.id}) }}">Supprimer</a></td>
+			</tr>
+        {% endfor %}
+	</table>
+
+{% endblock %}

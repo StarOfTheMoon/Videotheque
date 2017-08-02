@@ -1,0 +1,47 @@
+VideothequeBundle\Entity\Serie:
+    type: entity
+    table: null
+    repositoryClass: VideothequeBundle\Repository\SerieRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        showrunner:
+            type: string
+            length: 255
+            nullable: true
+        principalActor:
+            type: string
+            length: 255
+            nullable: true
+            column: principal_actor
+        secondActor1:
+            type: string
+            length: 255
+            nullable: true
+            column: second_actor_1
+        secondActor2:
+            type: string
+            length: 255
+            nullable: true
+            column: second_actor_2
+        secondActor3:
+            type: string
+            length: 255
+            nullable: true
+            column: second_actor_3
+        numSeason:
+            type: integer
+            nullable: true
+            column: num_season
+        diffusionDate:
+            type: date
+            nullable: true
+            column: diffusion_date
+        rating:
+            type: integer
+            nullable: true
+    lifecycleCallbacks: {  }

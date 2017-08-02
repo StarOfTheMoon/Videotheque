@@ -1,0 +1,27 @@
+videotheque_homepage:
+    path:     /videotheque
+    defaults: { _controller: VideothequeBundle:Default:index }
+videotheque_create_film:
+    path:     /videotheque/create-film
+    defaults: { _controller: VideothequeBundle:Default:createFilm }
+videotheque_create_serie:
+    path:     /videotheque/create-serie
+    defaults: { _controller: VideothequeBundle:Default:createSerie }
+videotheque_delete_film:
+    path:     /videotheque/delete/film/{id}
+    defaults: { _controller: VideothequeBundle:Default:deleteFilm }
+videotheque_delete_serie:
+    path:     /videotheque/delete/serie/{id}
+    defaults: { _controller: VideothequeBundle:Default:deleteSerie }
+videotheque_films:
+    path:     /videotheque/films
+    defaults: { _controller: VideothequeBundle:Default:films }
+videotheque_series:
+    path:     /videotheque/series
+    defaults: { _controller: VideothequeBundle:Default:series }
+videotheque_update_film:
+    path:     /videotheque/update/film/{id}
+    defaults: { _controller: VideothequeBundle:Default:updateFilm }
+videotheque_update_serie:
+    path:     /videotheque/update/serie/{id}
+    defaults: { _controller: VideothequeBundle:Default:updateSerie }

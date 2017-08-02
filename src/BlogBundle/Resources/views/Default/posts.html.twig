@@ -1,0 +1,52 @@
+{% extends "BlogBundle:default:layout.html.twig" %}
+
+{% block title %} Admin : Posts{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <table class="table">
+            <tr>
+                <td>
+                    Author
+                </td>
+                <td>
+                    Title
+                </td>
+                <td>
+                    Corps
+                </td>
+
+            </tr>
+            {# boucle pour les posts #}
+            {% for post in posts %}
+                <tr>
+                    <td>
+                        <div>
+                            <a href="{{ path('blog_post', {id: post.id}) }}">{{ post.author }} </a>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            {{ post.title }}
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            {{ post.body }}
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <a href="{{ path('blog_update_post',{id: post.id}) }}">modifier</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <a class="text-danger" href="{{ path('blog_delete_post',{id: post.id}) }}">supprimer</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

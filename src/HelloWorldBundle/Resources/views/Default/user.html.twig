@@ -1,0 +1,8 @@
+{% extends "HelloWorldBundle:default:layout.html.twig" %}
+{% block title %} Profil de {{ user.pseudo }} {% endblock %}
+
+{% block body %}
+	Pseudo : {{ user.pseudo }}<br>
+	Age : {{ user.age }}<br>
+	Email : {{ user.email }}<br>
+{% endblock %}

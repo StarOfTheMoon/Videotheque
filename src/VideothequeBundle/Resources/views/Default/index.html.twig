@@ -1,0 +1,142 @@
+{% extends 'VideothequeBundle:Default:layout.html.twig' %}
+
+{% block title %} Ma Vidéothèque {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h1 class="col-xs-12">Vidéothèque</h1>
+            {% if films %}
+            <table class="table text-center col-xs-12">
+                <tr>
+                    <th>
+                        Film
+                    </th>
+                    <th>
+                        Réalisateur
+                    </th>
+                    <th>
+                        Acteur principal
+                    </th>
+                    <th>
+                        Acteur secondaire
+                    </th>
+                    <th>
+                        Acteur secondaire 2
+                    </th>
+                    <th>
+                        Date de sortie
+                    </th>
+                    <th>
+                        Budget du film
+                    </th>
+                    <th>
+                        Note
+                    </th>
+                    <th>
+                        Options
+                    </th>
+                </tr>
+                    {% for f in films  %}
+                    <tr>
+                        <td><a href="{{ path('videotheque_update_film',{id: f.id}) }}">#{{ f.id }}</a></td>
+                        <td>{{ f.producer }}</td>
+                        <td>{{ f.principalActor }}</td>
+                        <td>{{ f.secondActor }}</td>
+                        <td>{{ f.secondActor2 }}</td>
+                        {% if f.releaseDate %}
+                        <td>{{ f.releaseDate |date("d/m/Y") }}</td>
+                        {% else %}
+                        <td></td>
+                        {% endif %}
+                        {% if f.budget %}
+                            <td>{{ f.budget }} $</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        <td>{{ f.rating }} / 5</td>
+                        <td>
+                            <a href="{{ path('videotheque_update_film',{id: f.id}) }}">Editer</a> |
+                            <a class="text-danger" href="{{ path('videotheque_delete_film',{id: f.id}) }}">Suppr.</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </table>
+            <div class="col-xs-12 clearfix">
+                <a class="btn btn pull-right" href="{{ path('videotheque_films') }}">> Voir tous les films</a>
+            </div>
+            {% else %}
+               <p class="empty col-xs-12">Aucun film pour le moment, vous pouvez en ajouter avec le bouton ci-dessous !</p>
+            {% endif %}
+            <div class="col-xs-12">
+                <a class="btn btn-primary"  href="{{ path('videotheque_create_film') }}">Ajouter un film</a>
+            </div>
+            {% if series %}
+            <table class="table text-center col-xs-12">
+                <tr>
+                    <th>
+                        Série
+                    </th>
+                    <th>
+                        Showrunner
+                    </th>
+                    <th>
+                        Acteur principal
+                    </th>
+                    <th>
+                        Acteur secondaire
+                    </th>
+                    <th>
+                        Acteur secondaire 2
+                    </th>
+                    <th>
+                        Acteur secondaire 3
+                    </th>
+                    <th>
+                        Nombre de saison
+                    </th>
+                    <th>
+                        Date de 1ère diffusion
+                    </th>
+
+                    <th>
+                        Note
+                    </th>
+                    <th>
+                        Options
+                    </th>
+                </tr>
+                    {% for s in series  %}
+                    <tr>
+                        <td><a href="{{ path('videotheque_update_serie',{id: s.id}) }}">#{{ s.id }}</></td>
+                        <td>{{ s.showrunner }}</td>
+                        <td>{{ s.principalActor }}</td>
+                        <td>{{ s.secondActor1 }}</td>
+                        <td>{{ s.secondActor2 }}</td>
+                        <td>{{ s.secondActor3 }}</td>
+                        <td>{{ s.numSeason }}</td>
+                        {% if s.diffusionDate %}
+                            <td>{{ s.diffusionDate |date("d/m/Y") }}</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        <td>{{ s.rating }} / 5</td>
+                        <td>
+                            <a href="{{ path('videotheque_update_serie',{id: s.id}) }}">Editer</a> |
+                            <a class="text-danger" href="{{ path('videotheque_delete_serie',{id: s.id}) }}">Suppr.</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </table>
+            <div class="col-xs-12 clearfix">
+                <a class="btn btn pull-right" href="{{ path('videotheque_series') }}">> Voir toutes les séries</a>
+            </div>
+            {% else %}
+                <p class="empty col-xs-12">Aucune série pour le moment, vous pouvez en ajouter avec le bouton ci-dessous !</p>
+            {% endif %}
+            <div class="col-xs-12">
+                <a class="btn btn-primary" type="button" href="{{ path('videotheque_create_serie') }}">Ajouter une série</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

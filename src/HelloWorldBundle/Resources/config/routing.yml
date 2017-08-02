@@ -1,0 +1,22 @@
+hello_world_homepage:
+    path:     /
+    defaults: { _controller: HelloWorldBundle:Default:users }
+
+hello_world_create_user:
+    path:     /create-user
+    defaults: { _controller: HelloWorldBundle:Default:createUser }
+hello_world_user:
+    path:     /user/{id}
+    defaults: { _controller: HelloWorldBundle:Default:getUser }
+
+hello_world_users:
+    path:     /users
+    defaults: { _controller: HelloWorldBundle:Default:users }
+
+hello_world_update_user:
+    path:     /update/{id}
+    defaults: { _controller: HelloWorldBundle:Default:updateUser }
+
+hello_world_delete_user:
+    path:     /delete/{id}
+    defaults: { _controller: HelloWorldBundle:Default:deleteUser }

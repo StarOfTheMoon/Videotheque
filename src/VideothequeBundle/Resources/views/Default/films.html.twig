@@ -1,0 +1,70 @@
+{% extends 'VideothequeBundle:Default:layout.html.twig' %}
+
+{% block title %} Films {% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Films</h1>
+    <table class="table text-center col-xs-12">
+        <tr>
+            <th>
+                Film
+            </th>
+            <th>
+                Réalisateur
+            </th>
+            <th>
+                Acteur principal
+            </th>
+            <th>
+                Acteur secondaire
+            </th>
+            <th>
+                Acteur secondaire 2
+            </th>
+            <th>
+                Date de sortie
+            </th>
+            <th>
+                Budget du film
+            </th>
+            <th>
+                Note
+            </th>
+            <th>
+                Options
+            </th>
+        </tr>
+        {% for f in films  %}
+            <tr>
+                <td><a href="{{ path('videotheque_update_film',{id: f.id}) }}">#{{ f.id }}</a></td>
+                <td>{{ f.producer }}</td>
+                <td>{{ f.principalActor }}</td>
+                <td>{{ f.secondActor }}</td>
+                <td>{{ f.secondActor2 }}</td>
+                {% if f.releaseDate %}
+                    <td>{{ f.releaseDate |date("d/m/Y") }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+                {% if f.budget %}
+                    <td>{{ f.budget }} $</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+                <td>{{ f.rating }} / 5</td>
+                <td>
+                    <a href="{{ path('videotheque_update_film',{id: f.id}) }}">Editer</a> |
+                    <a class="text-danger" href="{{ path('videotheque_delete_film',{id: f.id}) }}">Suppr.</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div class="col-xs-12">
+        <a class="btn btn-primary"  href="{{ path('videotheque_create_film') }}">Ajouter un film</a>
+    </div>
+    <div class="col-xs-12">
+        <a class="btn btn-default" href="{{ path('videotheque_homepage') }}">Retour homepage</a>
+    </div>
+</div>
+{% endblock %}

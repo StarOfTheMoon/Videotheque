@@ -1,0 +1,17 @@
+videotheque:
+    resource: "@VideothequeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+hello_world:
+    resource: "@HelloWorldBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+

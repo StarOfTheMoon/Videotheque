@@ -1,0 +1,41 @@
+VideothequeBundle\Entity\Film:
+    type: entity
+    table: null
+    repositoryClass: VideothequeBundle\Repository\FilmRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        producer:
+            type: string
+            length: 255
+            nullable: true
+        principalActor:
+            type: string
+            length: 255
+            nullable: true
+            column: principal_actor
+        secondActor:
+            type: string
+            length: 255
+            nullable: true
+            column: second_actor
+        secondActor2:
+            type: string
+            length: 255
+            nullable: true
+            column: second_actor_2
+        releaseDate:
+            type: date
+            nullable: true
+            column: release_date
+        budget:
+            type: bigint
+            nullable: true
+        rating:
+            type: integer
+            nullable: true
+    lifecycleCallbacks: {  }
